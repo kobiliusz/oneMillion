@@ -55,7 +55,7 @@ def number_name(no: int):
     remainder = ''
     if no < 0:
         return 'minus ' + number_name(-no)
-    if not no:
+    elif not no:
         return 'zero'
     elif no < 10:
         return ones[no]
