@@ -9,7 +9,17 @@ ones = {
     6: 'six',
     7: 'seven',
     8: 'eight',
-    9: 'nine'
+    9: 'nine',
+    10: 'ten',
+    11: 'eleven',
+    12: 'twelve',
+    13: 'thirteen',
+    14: 'fourteen',
+    15: 'fifteen',
+    16: 'sixteen',
+    17: 'seventeen',
+    18: 'eighteen',
+    19: 'nineteen'
 }
 
 tens = {
@@ -21,19 +31,6 @@ tens = {
     7: 'seventy',
     8: 'eighty',
     9: 'ninety'
-}
-
-teens = {
-    10: 'ten',
-    11: 'eleven',
-    12: 'twelve',
-    13: 'thirteen',
-    14: 'fourteen',
-    15: 'fifteen',
-    16: 'sixteen',
-    17: 'seventeen',
-    18: 'eighteen',
-    19: 'nineteen'
 }
 
 big = [
@@ -57,10 +54,8 @@ def number_name(no: int):
         return 'minus ' + number_name(-no)
     elif not no:
         return 'zero'
-    elif no < 10:
-        return ones[no]
     elif no < 20:
-        return teens[no]
+        return ones[no]
     elif no < 100:
         if no % 10:
             remainder = '-' + ones[no % 10]
@@ -80,5 +75,6 @@ def number_name(no: int):
 
 
 if __name__ == '__main__':
+    total_chars = 0
     for i in range(1, 1_000_001):
         print(number_name(i))
