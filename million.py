@@ -1,6 +1,7 @@
 
 
 ones = {
+    0: 'zero',
     1: 'one',
     2: 'two',
     3: 'three',
@@ -51,25 +52,23 @@ big = [
 def number_name(no: int):
     remainder = ''
     if no < 0:
-        return 'minus ' + number_name(-no)
-    elif not no:
-        return 'zero'
+        return f'minus {number_name(-no)}'
     elif no < 20:
         return ones[no]
     elif no < 100:
         if no % 10:
-            remainder = '-' + ones[no % 10]
-        return tens[no // 10] + remainder
+            remainder = f'-{ones[no % 10]}'
+        return f'{tens[no // 10]}{remainder}'
     elif no < 1000:
         if no % 100:
-            remainder = ' and ' + number_name(no % 100)
-        return ones[no // 100] + ' hundred' + remainder
+            remainder = f' and {number_name(no % 100)}'
+        return f'{ones[no // 100]} hundred{remainder}'
     else:
         for exponent, name in enumerate(big, start=1):
             if no < 1000 ** (exponent + 1):
                 if no % (1000 ** exponent):
-                    remainder = ', ' + number_name(no % (1000 ** exponent))
-                return number_name(no // (1000 ** exponent)) + ' ' + name + remainder
+                    remainder = f', {number_name(no % (1000 ** exponent))}'
+                return f'{number_name(no // (1000 ** exponent))} {name}{remainder}'
         else:
             raise NotImplementedError()
 

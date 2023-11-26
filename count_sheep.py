@@ -9,7 +9,7 @@ if __name__ == '__main__':
     tts_engine.setProperty('volume', 0.7)
     for no in count(1):
         try:
-            words = number_name(no) + ' sheep'
+            words = f'{number_name(no)} sheep'
         except NotImplementedError:
             exit(-1)
         print(words)
